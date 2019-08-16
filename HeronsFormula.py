@@ -17,3 +17,15 @@ with tf.Session() as sess:
     ]))
   result = sess.run(area)
   print(result)
+#################################################
+
+with tf.Session() as sess:
+  sides = tf.placeholder(tf.float32, shape=(None, 3))  # batchsize number of triangles, 3 sides
+  area = compute_area(sides)
+  result = sess.run(area, feed_dict = {
+      sides: [
+        [5.0, 3.0, 7.1],
+        [2.3, 4.1, 4.8]
+      ]
+    })
+  print(result)
